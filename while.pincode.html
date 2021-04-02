@@ -1,0 +1,48 @@
+<script>
+const PIN    = "0009" 
+let  pin     = ""      
+let tries    = 0
+let balance  = 1000000.00
+let max      = 50000.00
+
+while(tries < 3){ //maxim 3 incercari
+
+    pin = +prompt("Enter pin:")
+    tries++
+
+    if (pin == PIN){
+        
+        alert(`acces gradent \n\n Your balance : ${balance} MDL `);
+        let money = +prompt("withdrow:?");
+ 
+                         
+            //1: upgrade - check balance 
+            //2: max money = 50000.00
+
+        //2.daca suma care se vrea extrasa e mai mare decit maximum
+        if(money > max){
+            alert(`You\'ve requested too much money. Maximum of ${max} MDL is allowed`);
+            break;
+        }
+
+        //1.Verificam daca avem atita bani disponibili in cont
+        if(balance < money){
+            alert("Insufficient funds avalable. Please try again with a lower amount.");
+            break;   
+        }
+
+        balance -= money // balance = balance - money
+        alert(`Succes!!\n\n
+        your balance: ${balance} MDL`)
+        
+        ////////////////
+        break
+    } else{
+        alert("Wrong pin!")
+        if(tries == 3){
+            alert("Card blocked!")
+            break // force while stop
+        }
+    }
+}
+</script>
