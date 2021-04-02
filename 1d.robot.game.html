@@ -1,0 +1,65 @@
+
+<button onclick=" moveLeft();drowMap()">◀</button>
+
+<span id="gameMap"></span>
+
+<button onclick="moveRight();drowMap()">▶</button>
+
+<script>
+
+    const LEN = 20 //numarul total de poziitii
+
+    let rx    = 11 //pozitia initiala rx
+    let ry    = 10 //poziti initiala ry
+
+
+    function drowMap() {
+
+        gameMap.innerHTML = ""
+        
+      
+        for(let x=1; x<=LEN; x++){
+           
+
+            if(x == rx){ 
+
+            	gameMap.innerHTML += " ▶ " 
+      
+
+            }else if(x == ry){ 
+            
+            	gameMap.innerHTML += " ◀ "
+            
+           
+            
+            }else { 
+                gameMap.innerHTML += "﹍"
+            }
+        }
+    }
+
+    //2: limit movement:  start si la end
+    function moveLeft(){
+         
+        if(ry > 1){ 
+        	ry-- 
+        }else{
+        	alert("Outside the range");
+        }
+
+         
+        //1: finish this function - 
+    }
+    
+
+    function moveRight(){
+    	if(rx < LEN){ 
+        	rx++ 
+    	}else{
+    		alert("Outside the range");
+    	}
+	}
+    
+    drowMap(); 
+    </script>
+    
